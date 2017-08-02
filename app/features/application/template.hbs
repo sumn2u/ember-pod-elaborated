@@ -1,0 +1,63 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+                <div class="navbar-header" href="#">
+                        {{#link-to 'index' class='navbar-brand'}}Program With HAI{{/link-to}}
+                </div>
+                <ul class="nav navbar-nav">
+                    {{#if session.isAuthenticated}}
+                        <li><a> Add New Post </a></li>
+                    {{/if}}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {{#unless session.isAuthenticated}}
+                        <li><a href="#" {{action 'login' }}>Login</a></li>
+                    {{else}}
+                        <li><a href="#" {{action 'logout' }}>Logout</a></li>
+                        <li>
+                            <a href='http://twitter.com/{{session.currentUser.username}}' target='_blank'>
+                                <img src='{{session.currentUser.profileImageURL}}' height='30px' width='30px'/>
+                            </a>
+                        </li>
+                    {{/unless}}
+                </ul>
+
+        </div>
+</nav>
+<div class = 'row main'>
+    <div class='col-md-4'>
+    {{#unless session.isAuthenticated}}
+    <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      {{input
+                        id="userEmail"
+                        type="email"
+                        value=email
+                        class="validate"
+                      }}
+                      <label for="email">Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      {{input
+                        id="userPassword"
+                        type="password"
+                        value=password
+                        class="validate"
+                      }}
+                      <label for="password">Password</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s12 m4">
+                      <button class="btn waves-effect waves-light btn-large mt-20 mb-10" type="submit" {{action 'signIn' email password}}>Sign in
+                        <i class="material-icons right">send</i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+    {{/unless}}
+    {{outlet}}
+</div>
+</div>

@@ -4,6 +4,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'amaze',
+    podModulePrefix: 'amaze/features',
     environment,
     rootURL: '/',
     locationType: 'auto',
@@ -17,6 +18,17 @@ module.exports = function(environment) {
         Date: false
       }
     },
+    firebase :{
+    apiKey: "AIzaSyCI8YJHYZ4D1-6A_c9p39vAy1VhCNo41zU",
+    authDomain: "lunch-rush-35ea4.firebaseapp.com",
+    databaseURL: "https://lunch-rush-35ea4.firebaseio.com",
+    projectId: "lunch-rush-35ea4",
+    storageBucket: "lunch-rush-35ea4.appspot.com",
+    messagingSenderId: "31236444848"
+  },
+  torii: {
+   sessionServiceName: 'session'
+},
 
     APP: {
       // Here you can pass flags/options to your application instance
